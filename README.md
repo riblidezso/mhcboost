@@ -28,6 +28,9 @@ Input data is very simply coded as the folowing:
 - amino acids are encoded in a one hot scheme
 - species are encoded in a one hot scheme
 - HLA types are encoded in a one-hot scheme
+- HLA loci are encoded in a one-hot scheme
+- HLA serotypes are encoded in a one-hot scheme
+- peptide lengths are included
 
 #### Target 
 
@@ -72,7 +75,7 @@ Original article about stacking.
 ### Methods
 
 
-I made 5-fold cross validation evaluations, with AUC for all the measurements.
+I made 5-fold cross validation evaluations, with AUC for all the measurements. All models can use early stopping on validation data so 3:1:1 scheme was used in each fold: 3 subsets for training 1 for validation and 1 for only prediction.
 
 
 
@@ -87,11 +90,13 @@ Gradient boosted trees significantly outperform neural networks in this task. Th
 
 Method | 5 fold CV
 --- | --- 
-NN | 
-Gradient boosted trees | 
-Ensemble of Gradient boosted trees + NN | 0.9362 
-NetMHCpan | 0.937
+NN | 0.9169
+Gradient boosted trees | 0.9307
+Ensemble of Gradient boosted trees + NN | 0.9361
+NetMHCpan | **0.9376**
 
+
+The ensemble has better results than NetMHCpan on peptide length 8,10,12, but please note that these NetMHCpan results from the article were obtained with the L-mer approximation, not the newest representation on peptids of different length.
 
 ---
 
@@ -100,7 +105,28 @@ NetMHCpan | 0.937
 
 #### Training on similar data than NetMHCpan
 
-My models perform worse than NetMHCpan which is considered to be the state of the art model in MHC class I prediction. 
+My models perform worse slitghly than NetMHCpan which is considered to be the state of the art model in MHC class I prediction. 
 
-But NetMHCpan uses sophsticated encogind of the MHC molecules, a sophicsticated way for predicting different length peptides, adds random not binding data to inputs, and it is an ensemble of models. I think that Gradient Boosted trees trained on the data used for NetMHCpan training, and using ensembling could significanlty improve the current state of the art.
+But NetMHCpan uses sophsticated encoding of the MHC molecules, a sophisticated way for predicting different length peptides, it adds random not binding data to inputs, and it is an ensemble of models, which were trained on different representations. 
 
+**I think that Gradient Boosted trees trained on the data used for NetMHCpan training, and using ensembling could significanlty improve the current state of the art.**
+
+
+
+----
+#### Notes
+
+- To run this notebook you need to 
+    - download the dataset
+    - export the MHC_DATA variable
+    - and have keras,theno,xgboost,sklearn,pandas,numpy installed.
+    
+    
+- This notebook can be run as it is. Just click run all. 
+    - It takes some time but on a stronger computer it should be less than 30 minutes.
+
+
+----
+
+
+This notebook was created by Dezso Ribli
