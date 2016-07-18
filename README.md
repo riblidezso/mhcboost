@@ -84,15 +84,15 @@ I made 5-fold cross validation evaluations, with AUC for all the measurements. A
 ### Conclusions
 
 
-Gradient boosted trees significantly outperform neural networks in this task. The ensemble of neural networks and gradient boosted trees gives significant improvement over the base models. NetMHCPan outperforms my simple models.
+Gradient boosted trees significantly outperform neural networks in this task. The ensemble of neural networks and gradient boosted trees gives significant improvement over the base models. NetMHCPan slightly outperforms my simple models.
 
 
 
 Method | 5 fold CV
 --- | --- 
-NN | 0.9169
-Gradient boosted trees | 0.9307
-Ensemble of Gradient boosted trees + NN | 0.9361
+NN | 0.9156
+Gradient boosted trees | 0.9340
+Ensemble of Gradient boosted trees + NN | 0.9374
 NetMHCpan | **0.9376**
 
 
@@ -105,28 +105,12 @@ The ensemble has better results than NetMHCpan on peptide length 8,10,12, but pl
 
 #### Training on similar data than NetMHCpan
 
-My models perform worse slitghly than NetMHCpan which is considered to be the state of the art model in MHC class I prediction. 
+The nesemble model performs slitghly worse than NetMHCpan which is considered to be the state of the art model in MHC class I prediction. 
 
-But NetMHCpan uses sophsticated encoding of the MHC molecules, a sophisticated way for predicting different length peptides, it adds random not binding data to inputs, and it is an ensemble of models, which were trained on different representations. 
+But NetMHCpan uses sophsticated encoding of the MHC molecules with pseudo sequences, a sophisticated way for predicting different length peptides and it is an ensemble of many models trained on different representations. 
 
-**I think that Gradient Boosted trees trained on the data used for NetMHCpan training, and using ensembling could significanlty improve the current state of the art.**
+**I think that Gradient Boosted trees trained on the same data used for NetMHCpan training, and using ensembling trees and neural networks could significanlty improve the current state of the art.**
 
-
-
-----
-#### Notes
-
-- To run this notebook you need to 
-    - download the dataset
-    - export the MHC_DATA variable
-    - and have keras,theno,xgboost,sklearn,pandas,numpy installed.
-    
-    
-- This notebook can be run as it is. Just click run all. 
-    - It takes some time but on a stronger computer it should be less than 30 minutes.
 
 
 ----
-
-
-This notebook was created by Dezso Ribli
