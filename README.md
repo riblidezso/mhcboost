@@ -84,19 +84,18 @@ I made 5-fold cross validation evaluations, with AUC for all the measurements. A
 ### Conclusions
 
 
-Gradient boosted trees significantly outperform neural networks in this task. The ensemble of neural networks and gradient boosted trees gives significant improvement over the base models. NetMHCPan slightly outperforms my simple models.
-
+Gradient boosted trees significantly outperform neural networks in this task. The ensemble of neural networks and gradient boosted trees gives further improvement over the base models. NetMHCPan performance is very similar to the ensemble model on this dataset.
 
 
 Method | 5 fold CV
 --- | --- 
-NN | 0.9156
-Gradient boosted trees | 0.9340
-Ensemble of Gradient boosted trees + NN | 0.9374
-NetMHCpan | **0.9376**
+NN | 0.9172
+Gradient boosted trees | 0.9355
+Ensemble of Gradient boosted trees + NN | 0.9377
+NetMHCpan | 0.9376
 
 
-The ensemble has better results than NetMHCpan on peptide length 8,10,12, but please note that these NetMHCpan results from the article were obtained with the L-mer approximation, not the newest representation on peptids of different length.
+The ensemble has better results than NetMHCpan on peptide length 8,10,11,12, but please note that these NetMHCpan results from the article were obtained with the L-mer approximation, not the newest representation on peptids of different length.
 
 ---
 
@@ -105,7 +104,7 @@ The ensemble has better results than NetMHCpan on peptide length 8,10,12, but pl
 
 #### Training on similar data than NetMHCpan
 
-The nesemble model performs slitghly worse than NetMHCpan which is considered to be the state of the art model in MHC class I prediction. 
+The ensemble model performs comparably to NetMHCpan which is considered to be the state of the art model in MHC class I prediction. 
 
 But NetMHCpan uses sophsticated encoding of the MHC molecules with pseudo sequences, a sophisticated way for predicting different length peptides and it is an ensemble of many models trained on different representations. 
 
@@ -113,4 +112,4 @@ But NetMHCpan uses sophsticated encoding of the MHC molecules with pseudo sequen
 
 
 
-----
+---
