@@ -77,6 +77,8 @@ Original article about stacking.
 
 I made 5-fold cross validation evaluations, with AUC for all the measurements. All models can use early stopping on validation data so 3:1:1 scheme was used in each fold: 3 subsets for training 1 for validation and 1 for only prediction.
 
+The folds used were defined in the benchmark article as the group similarity (cv_gs) folds.
+
 
 
 --- 
@@ -84,18 +86,18 @@ I made 5-fold cross validation evaluations, with AUC for all the measurements. A
 ### Conclusions
 
 
-Gradient boosted trees significantly outperform neural networks in this task. The ensemble of neural networks and gradient boosted trees gives further improvement over the base models. NetMHCPan performance is very similar to the ensemble model on this dataset.
+Gradient boosted trees significantly outperform neural networks in this task. The ensemble of neural networks and gradient boosted trees gives further improvement over the base models. NetMHCPan performs better than the ensemble model on this dataset.
 
 
 Method | 5 fold CV
 --- | --- 
-NN | 0.9172
-Gradient boosted trees | 0.9355
-Ensemble of Gradient boosted trees + NN | 0.9377
-NetMHCpan | 0.9376
+NN | 0.907
+Gradient boosted trees | 0.919
+Ensemble of Gradient boosted trees + NN | 0.923
+NetMHCpan | **0.934**
 
 
-The ensemble has better results than NetMHCpan on peptide length 8,10,11,12, but please note that these NetMHCpan results from the article were obtained with the L-mer approximation, not the newest representation on peptids of different length.
+The ensemble has better results than NetMHCpan on peptide length 8, but please note that these NetMHCpan results from the article were obtained with the L-mer approximation, not the newest representation on peptids of different length.
 
 ---
 
@@ -104,7 +106,7 @@ The ensemble has better results than NetMHCpan on peptide length 8,10,11,12, but
 
 #### Training on similar data than NetMHCpan
 
-The ensemble model performs comparably to NetMHCpan which is considered to be the state of the art model in MHC class I prediction. 
+The ensemble model performs worse than NetMHCpan which is considered to be the state of the art model in MHC class I prediction. 
 
 But NetMHCpan uses sophsticated encoding of the MHC molecules with pseudo sequences, a sophisticated way for predicting different length peptides and it is an ensemble of many models trained on different representations. 
 
@@ -112,4 +114,3 @@ But NetMHCpan uses sophsticated encoding of the MHC molecules with pseudo sequen
 
 
 
----
