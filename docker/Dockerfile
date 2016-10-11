@@ -16,8 +16,13 @@ ENV PYTHONPATH /xgboost/python-package:$PYTHOPATH
 #install seaborn for fancy plotting
 RUN conda install -y seaborn
 
+#copy input data
+COPY input /home/root/input
+
+#copy the notebook
+COPY netmhc_no_nestcv.ipynb /home/root/
+
 WORKDIR /home/root
 
-EXPOSE 8888
-
-CMD ["jupyter", "notebook", "--no-browser","--port=8889"]
+EXPOSE 9013
+CMD ["jupyter", "notebook", "--no-browser","--port=9013"]
