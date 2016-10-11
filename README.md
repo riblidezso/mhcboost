@@ -108,9 +108,10 @@ I think adding Gradient Boosted trees to the NetMHC ensemble could further impor
 #### Notes
 
 - To run this notebook you need to 
-    - download the dataset
-    - and have keras,theno,xgboost,sklearn,pandas,numpy installed
-    - see the docker image for a ready enviroment
+    - download the dataset,and have keras,theno,xgboost,sklearn,pandas,numpy installed
+    - or use the docker image for a ready enviroment
+	- install docker
+	- go to the docker folder and follow instructions
     
     
     
